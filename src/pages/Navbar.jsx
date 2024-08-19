@@ -8,6 +8,7 @@ const Navbar = () => {
     <li><NavLink className={({isActive})=> isActive ? 'text-white bg-slate-500' : ''  } to='/'>Home</NavLink></li>
     <li><NavLink className={({isActive})=> isActive ? 'text-white bg-slate-500' : ''  } to='/about'>About</NavLink></li>
     <li><NavLink className={({isActive})=> isActive ? 'text-white bg-slate-500' : ''  } to='/career'>Career</NavLink></li>
+    <li><NavLink className={({isActive})=> isActive ? 'text-white bg-slate-500' : ''  } to='/login'>Login</NavLink></li>
     
     </>
     return (
@@ -51,7 +52,7 @@ const Navbar = () => {
         </div>
       </div>
 
-          <Link> <button className="px-8 py-2 bg-[#403F3F] text-white"> Login</button> </Link>
+          <Link to='/login'> <button className="px-8 py-2 bg-[#403F3F] text-white"> Login</button> </Link>
         
         </div>
       </div>

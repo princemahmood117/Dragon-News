@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import { BiCategory } from "react-icons/bi";
 import { Link } from "react-router-dom";
 
 
@@ -9,6 +8,7 @@ const LeftNav = () => {
     const [categories,setCategories] = useState([]);
 
     useEffect(()=>{
+        
         //যেহেতু বাম পাশের এগুলা রেন্ডারের মাধ্যমে আসবে না,তাই fetch দিয়ে করা লাগবে,যাতে হোম পাইজেই এগুলো বাই ডিফল্ট পাওয়া যায় 
 
         // public folder এ থাকায় শুধু ফাইল নাম দিলেই হবে
