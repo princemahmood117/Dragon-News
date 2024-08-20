@@ -1,11 +1,41 @@
 import { Link } from "react-router-dom";
 import Header from "../Header";
 import Navbar from "../Navbar";
+import { useContext } from "react";
+import { AuthContext } from "../../ContextProvider/ContextProvider";
+
 
 const Login = () => {
+
+  const {login} = useContext(AuthContext)
+
+
   const handleLogin = (e) => {
+
     e.preventDefault();
+    console.log(e.currentTarget);
+
+    // another way to collect input field's data [we also can use ' e.target.name_field_data.value '] 
+
+    const formData = new FormData(e.currentTarget)  // gives some information from the form
+
+    const email = formData.get('email')
+    const password = formData.get('password')
+    
+    console.log(email,"",password);    // get method gets the data of "name" given inside the input form
+
+    login(email,password)
+    .then(result=>{
+      console.log('login successfull');
+    })
+    .catch(error=>{
+      console.log(error.message);
+    })
+    
+ 
   };
+
+  
   return (
     <div>
       <Header></Header>

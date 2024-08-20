@@ -1,5 +1,5 @@
+import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
-
 
 const AllNews = ({info}) => {
     return (
@@ -16,4 +16,16 @@ const AllNews = ({info}) => {
     );
 };
 
+AllNews.propTypes = {
+    info: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        image_url: PropTypes.string.isRequired,
+        details: PropTypes.string.isRequired,
+    }).isRequired,
+};
+
+
 export default AllNews;
+
+
+
