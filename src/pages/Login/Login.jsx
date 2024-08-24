@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Header from "../Header";
 import Navbar from "../Navbar";
 import { useContext } from "react";
@@ -6,6 +6,9 @@ import { AuthContext } from "../../ContextProvider/ContextProvider";
 
 
 const Login = () => {
+
+  const location = useLocation()
+  const navigate = useNavigate()
 
   const {login} = useContext(AuthContext)
 
@@ -25,8 +28,12 @@ const Login = () => {
     console.log(email,"",password);    // get method gets the data of "name" given inside the input form
 
     login(email,password)
-    .then(result=>{
+    .then(() =>{
+  
       console.log('login successfull');
+
+      // state এ কিছু থাকলে সেখানে নিয়ে যাবে (কোনো detailsNews এ ক্লিকড অবস্থায় থাকলে), না থাকলে (সরাসরি লগ-ইন) হোম এ নিয়ে যাবে
+      navigate(location?.state ? location.state : '/')
     })
     .catch(error=>{
       console.log(error.message);

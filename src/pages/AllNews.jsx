@@ -1,20 +1,31 @@
+
 import PropTypes from 'prop-types';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
+// import { Link } from "react-router-dom";
 
 const AllNews = ({info}) => {
+    const {title,image_url,details,_id} = info;
     return (
-        <div>
-
-            <Link className="p-2">
-            <h2 className="text-2xl mb-2 mt-2">{info.title}</h2>
-            <img src={info.image_url} alt="" /></Link>
-            <p className="text-sm my-2 p-2">{info.details}</p>
-            <p className="text-sm ml-2 font-bold">Read more...</p>
-            
-
+        <div className="card card-compact bg-base-100 shadow-xl mb-6">
+        <figure>
+          <img
+            src={image_url}
+            alt="Shoes" />
+        </figure>
+        <div className="card-body">
+          <h2 className="card-title">{title}</h2>
+     
+            {
+                details.length > 200 ? <p> {details.slice(0,200)}
+                <Link to={`/news/${_id}`} className='text-blue-600 font-bold ml-4'>Read More...</Link> </p> :
+                <p>{details}</p>
+            }
+     
         </div>
+      </div>
     );
 };
+
 
 AllNews.propTypes = {
     info: PropTypes.shape({
